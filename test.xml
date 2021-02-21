@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Objects>
+  <Object Type="System.Management.Automation.PSCustomObject">
+    <Property Name="DisplayName" Type="System.String">SQL Server (MSSQLSERVER)</Property>
+    <Property Name="ServiceState" Type="Microsoft.SqlServer.Management.Smo.Wmi.ServiceState">Running</Property>
+  </Object>
+  <Object Type="System.Management.Automation.PSCustomObject">
+    <Property Name="DisplayName" Type="System.String">SQL Server Agent (MSSQLSERVER)</Property>
+    <Property Name="ServiceState" Type="Microsoft.SqlServer.Management.Smo.Wmi.ServiceState">Stopped</Property>
+  </Object>
+</Objects>

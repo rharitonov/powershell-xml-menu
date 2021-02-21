@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root xmlns="urn:microsoft-dynamics-nav/xmlports/x50020">
+  <root_element>
+    <companies>
+      <company name="VTB Capital Plc Hong Kong_IFRS" processing_result="OK" />
+	  <company name="Cronus" processing_result="OK" />
+    </companies>
+    <errors />
+  </root_element>
+</root>

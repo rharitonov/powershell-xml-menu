@@ -1,3 +1,12 @@
-file1.txt
-file2.txt
-file3.txt
+\\smsk02ap64u\NAV_upload\Archive\tmp\Q_Subm_Jul'20_LDN.txt
+C:\Temp\en_windows_10_business_editions_version_2004_updated_sep_2020_x64_dvd_d015d77b\sources\inf\setup.cfg
+\\smsk02ap64u\NAV_upload\Archive\tmp\Q_Subm_Aug'20_LDN.txt
+\\smsk02ap64u\NAV_upload\Archive\tmp\Query for submission Hong Kong_20200430.txt
+\\smsk02ap64u\NAV_upload\Archive\tmp\Q_Subm_JUNE'20_ZUG_2.txt
+C:\src\HelloWorld.al
+\\smsk02ap64u\NAV_upload\Archive\tmp\Q_Subm_Oct'20_ZUG.txt
+
+C:\Temp\en_windows_10_business_editions_version_2004_updated_sep_2020_x64_dvd_d015d77b\sources\etwproviders\etwproviderinstall.vbs
+
+C:\src\git_01\HelloWorld.al
+C:\src\NAVTextObjectMisc\DataPerCompany.py
