@@ -58,7 +58,7 @@ $responseXML
 #[xml]$xml = Get-Content .\ImportFile-reponse1.xml
 [xml]$xml = Get-Content $responseXML
 $MenuCompany = [System.Collections.Generic.List[string]]::new()
-$xml.root."root_element".companies.company | Select-Object name | ForEach-Object {
+$xml.root."root_element".companies.company | Where-Object "processing_result" -eq "OK" | ForEach-Object {
     $val = $_."name"
     $MenuCompany.Add($val)
 }

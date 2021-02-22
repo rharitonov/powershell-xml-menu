@@ -4,6 +4,7 @@
     <companies>
       <company name="VTB Capital Plc Hong Kong_IFRS" processing_result="OK" />
 	  <company name="Cronus" processing_result="OK" />
+	  <company name="Cronus Russia" processing_result="ERROR" />
     </companies>
     <errors />
   </root_element>
