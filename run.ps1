@@ -1,5 +1,7 @@
 param ($ImportFilename = $null)
 
+$EndpointRootAddress = "http://smsk02ap64u:7127/DynamicsNAV_DEV3/WS"
+
 if (!(Test-Path -Path .\imports.txt)){
     Write-Host "imports.txt is not found!" -BackgroundColor Black -ForegroundColor Red
 }
@@ -16,7 +18,7 @@ if ($ImportFilename) {
 Clear-Host
 if (!$ImportFilename) {
     Write-Host "=== 1730 Tester: Select the file ============================================================" -BackgroundColor Yellow -ForegroundColor Black
-    $Menu = [System.Collections.Generic.List[string]]::new()
+    $MenuFile = [System.Collections.Generic.List[string]]::new()
     $SelectedMenuItem = 0
     Get-Content .\imports.txt | ForEach-Object {
         if ($_) {
@@ -24,25 +26,33 @@ if (!$ImportFilename) {
                 Write-Host "x - $_" -ForegroundColor Red
             } else {
                 Write-Host "$SelectedMenuItem - $_"
-                $Menu.Add($_)
+                $MenuFile.Add($_)
                 $SelectedMenuItem += 1 
             }   
         }
     }
-    $SelectedMenuItem = Read-Host "Your choose"
-    $ImportFilename = $Menu[$SelectedMenuItem]
-    if (!$ImportFilename){
-        Write-Host "No File. Bye!"-BackgroundColor Black -ForegroundColor Red
+    if ($MenuFile.Count -eq 0) {
+        Write-Host "No Files in imports.txt. Bye!"-BackgroundColor Black -ForegroundColor Red
         exit
+    }
+    if ($MenuFile.Count -eq 1){
+        $ImportFilename = $MenuFile[0]    
+    } else {
+        $SelectedMenuItem = Read-Host "Your choose"
+        $ImportFilename = $Menu[$SelectedMenuItem]
+        if (!$ImportFilename){
+            Write-Host "No File. Bye!"-BackgroundColor Black -ForegroundColor Red
+            exit
+        }    
     }
 }
 
 
-$ws = New-WebServiceProxy "http://smsk02ap64u:7127/DynamicsNAV_DEV3/WS/VTB Business Finance_IFRS/Codeunit/ConsolidationAPI"  -UseDefaultCredential 
+$ws = New-WebServiceProxy "$EndpointRootAddress/VTB Business Finance_IFRS/Codeunit/ConsolidationAPI"  -UseDefaultCredential 
 $ws.Timeout = [System.Int32]::MaxValue
 $responseXML = ""
 $ws.ImportFile($ImportFilename, ([ref]$responseXML)) 
-
+$responseXML
 ##
 
 #[xml]$xml = Get-Content .\ImportFile-reponse1.xml
@@ -75,7 +85,7 @@ if ($MenuCompany.Count -eq 1){
 }
 
 
-$ws = New-WebServiceProxy "http://smsk02ap64u:7127/DynamicsNAV_DEV3/WS/$SelectedCompany/ConsolidationAPI"  -UseDefaultCredential 
+$ws = New-WebServiceProxy "$EndpointRootAddress/$SelectedCompany/ConsolidationAPI"  -UseDefaultCredential 
 $ws.Timeout = [System.Int32]::MaxValue
 $responseXML = ""     
 $ws.StartConsolidationFromBuffer([ref]$responseXML) 
