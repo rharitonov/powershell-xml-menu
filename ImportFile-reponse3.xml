@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root xmlns="urn:microsoft-dynamics-nav/xmlports/x50020">
+  <root_element>
+    <companies />
+    <errors />
+  </root_element>
+</root>
